@@ -1,0 +1,49 @@
+.container{
+    display: flex;
+    padding: 15px;
+    padding-right:27px ;
+    gap: 212px;
+}
+.card{
+    box-shadow: 0px 0px 10px #808080;
+    width: 290px;
+    height: 104px;
+    padding: 13px;
+    border-radius: 10px;
+}
+.cardcon{
+    padding: 5px;
+}
+.cardcon1 {
+    padding: 12px;
+}
+.heading{
+    color:yellowgreen;
+    margin-bottom: 10px;
+    margin-left: 13px;
+    cursor: pointer;
+}
+.mid{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    width: 377px;
+    height: 234px;
+    border-radius: 13px;
+    background-color: rgb(249, 247, 247);
+    margin-bottom: 37px;
+}
+.back{
+    color: yellowgreen;
+    cursor: pointer;
+}
+.cardbtn{
+    width: 282px;
+    height: 31px;
+    font-size: 1rem;
+    margin-top: 40px;
+    background-color: rgb(56, 56, 80);
+    border-radius: 17px;
+    color: white;
+    cursor: pointer;
+}
