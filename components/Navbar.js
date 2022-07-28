@@ -2,8 +2,9 @@ import Navbarcss from "../styles/Navbar.module.css";
 import { useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 import { ToastContainer } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
+import "react-toastify/dist/ReactToastify.css";
 import { Store } from "../utlis/Store";
 
 function Navbar({ companyname, homename, aboutname, logo }) {
@@ -36,7 +37,7 @@ function Navbar({ companyname, homename, aboutname, logo }) {
         </div>
         <div className={Navbarcss.user}>
           <ul>
-            {/* {status === "loading" ? (
+            {status === "loading" ? (
               "Loading"
             ) : session?.user ? (
               session.user.name
@@ -44,7 +45,7 @@ function Navbar({ companyname, homename, aboutname, logo }) {
               <Link href="/login">
                 <a className="p-2">Login</a>
               </Link>
-            )} */}
+            )}
 
             <Link href="/cart">
               <li>
