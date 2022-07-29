@@ -2,8 +2,9 @@ import Navbar from "../components/Navbar";
 import Homescreen from "../components/Homescreen";
 import { useEffect } from "react";
 import { useState } from "react";
+import dynamic from "next/dynamic";
 
-export default function Home() {
+function Home() {
   const [products, setdata] = useState();
 
   useEffect(() => {
@@ -26,3 +27,4 @@ export default function Home() {
     </>
   );
 }
+export default dynamic(() => Promise.resolve(Home), { ssr: false });

@@ -4,8 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { Store } from "../utlis/Store";
+import dynamic from "next/dynamic";
 
 function Navbar({ companyname, homename, aboutname, logo }) {
   const { status, data: session } = useSession();
@@ -16,7 +16,7 @@ function Navbar({ companyname, homename, aboutname, logo }) {
   useEffect(() => {
     setcartItemsCount(cart.cartItems.reduce((a, c) => a + c.quantity, 0));
   }, [cart.cartItems]);
-  console.log('working');
+  
   return (
     <>
       <div className={Navbarcss.header}>
@@ -62,4 +62,4 @@ function Navbar({ companyname, homename, aboutname, logo }) {
     </>
   );
 }
-export default Navbar;
+export default dynamic(() => Promise.resolve(Navbar), { ssr: false });

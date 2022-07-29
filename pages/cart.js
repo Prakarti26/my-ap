@@ -3,7 +3,6 @@ import Link from "next/link";
 import Navbar from "../components/Navbar";
 import { Store } from "../utlis/Store";
 import Image from "next/image";
-import { XCircleIcon } from "@heroicons/react/outline";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 
@@ -80,7 +79,7 @@ function CartScreen() {
                     <td className="p-5 text-right">{item.price}</td>
                     <td className="p-5 text-center">
                       <button onClick={() => removeItemHandler(item)}>
-                        <XCircleIcon className="h-5 w-5"></XCircleIcon>
+                        {/* <XCircleIcon className="h-5 w-5"></XCircleIcon> */}
                       </button>
                     </td>
                   </tr>

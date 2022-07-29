@@ -5,11 +5,14 @@ import { useForm } from "react-hook-form";
 import { getError } from "../utlis/error";
 import { toast } from "react-toastify";
 import {useRouter} from 'next/router';
+import dynamic from "next/dynamic";
+import Navbar from "../components/Navbar";
 
-export default function LoginScreen() {
+
+function LoginScreen() {
   const {data: session} = useSession();
   const path = useRouter();
-  const {redirect} = router.query;
+  const {redirect} = path.query;
  useEffect(() =>{
   if(session?.user){
     path.push(redirect || '/');
@@ -23,7 +26,7 @@ export default function LoginScreen() {
   } = useForm();
   const submitHandler = ({ email, password }) => {
     try{
-      const result = await signIn('credentials',{
+      const result =  signIn('credentials',{
         redirect: false,
         email,
         password,
@@ -36,6 +39,13 @@ export default function LoginScreen() {
     }
   };
   return (
+    <>
+    <Navbar
+        companyname="MukulKamwala"
+        homename="Home"
+        aboutname="About Us"
+        logo="vercel.svg"
+      />
     <div>
       <form
         className="mx-auto max-w-screen-md"
@@ -86,5 +96,7 @@ export default function LoginScreen() {
         </div>
       </form>
     </div>
+    </>
   );
 }
+export default dynamic(() => Promise.resolve(LoginScreen), { ssr: false });
