@@ -11,22 +11,23 @@ import Navbar from "../components/Navbar";
 
 function LoginScreen() {
   const {data: session} = useSession();
-  const path = useRouter();
-  const {redirect} = path.query;
- useEffect(() =>{
-  if(session?.user){
-    path.push(redirect || '/');
-  }
- },[ path,session,redirect]);
+  const router = useRouter();
+  const { redirect } = router.query;
+ useEffect(() => {
+   if (session?.user) {
+     router.push(redirect || "/");
+   }
+ }, [router, session, redirect]);
 
   const {
     handleSubmit,
     register,
     formState: { errors },
   } = useForm();
-  const submitHandler = ({ email, password }) => {
+  const submitHandler = async ({ email, password }) => {
+    // console.log(email,password);
     try{
-      const result =  signIn('credentials',{
+      const result = await signIn('credentials',{
         redirect: false,
         email,
         password,

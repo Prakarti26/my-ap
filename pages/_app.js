@@ -1,21 +1,14 @@
-import '../styles/globals.css'
-import { StoreProvider } from '../utlis/Store'
-import {SessionProvider} from 'next-auth/react'
+import "../styles/globals.css";
+import { StoreProvider } from "../utlis/Store";
+import { SessionProvider } from "next-auth/react";
 import dynamic from "next/dynamic";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
-    <SessionProvider session={pageProps.session}>
+    <SessionProvider session={session}>
       <StoreProvider>
-        {Component.auth ? (
-          <Auth>
-            <Component {...pageProps} />
-          </Auth>
-        ) : (
-          <Component {...pageProps} />
-        )}
+        <Component {...pageProps} />
       </StoreProvider>
-      //{" "}
     </SessionProvider>
   );
 }

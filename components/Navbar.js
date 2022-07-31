@@ -4,11 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import { Store } from "../utlis/Store";
 import dynamic from "next/dynamic";
 
 function Navbar({ companyname, homename, aboutname, logo }) {
-  const { status, data: session } = useSession();
+  const { status, data: session } = useSession(); //status is the flag shows the loading of the session
 
   const { state } = useContext(Store);
   const { cart } = state;

@@ -2,6 +2,7 @@ import NextAuth from "next-auth";
 import User from "../../../modal/User";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcryptjs from "bcryptjs";
+// import dynamic from "next/dynamic";
 
 export default NextAuth({
   session: {
@@ -39,3 +40,4 @@ export default NextAuth({
     }),
   ],
 });
+// export default dynamic(() => Promise.resolve(NextAuth), { ssr: false });
