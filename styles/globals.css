@@ -24,3 +24,7 @@ a {
     background: black;
   }
 }
+
+.dropdown-link{
+  @apply flex p-2 hover:bg-hray-200;
+}
